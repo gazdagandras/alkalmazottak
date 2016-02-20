@@ -18,11 +18,17 @@ mysqli_set_charset($link, "utf8");
 
 // Új dolgozó felvitele:
 if (isset($_POST["uj_dolgozo"])) {
+  $nev = $_POST["nev"];
+  $irszam = $_POST["irszam"];
+  $telepules = $_POST["telepules"];
+  $cim = $_POST["cim"];
+  $szuletesi_hely = $_POST["szuletesi_hely"];
+  $szuletesi_ido = $_POST["szuletesi_ido"];
+  $szemelyig_szam = $_POST["szemelyig_szam"];
+  
   $sql = "INSERT INTO alkalmazottak_adatai "
           ."(nev, irszam, telepules, cim, szuletesi_hely, szuletesi_ido, szemelyig_szam) "
-          ."VALUES ('".$_POST["nev"]."', '".$_POST["irszam"]."', '".$_POST["telepules"]
-          ."', '".$_POST["cim"]."', '".$_POST["szuletesi_hely"]
-          ."', '".$_POST["szuletesi_ido"]."', '".$_POST["szemelyig_szam"]."')";
+          ."VALUES ('$nev','$irszam','$telepules','$cim','$szuletesi_hely','$szuletesi_ido','$szemelyig_szam')";
   //echo $sql;
   mysqli_query($link, $sql);
   // Hibakezelés:
