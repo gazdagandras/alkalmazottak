@@ -37,6 +37,13 @@ if (isset($_POST["uj_dolgozo"])) {
   }
 }
 
+// Dolgozó törlése:
+if (isset($_POST["dolgozo_torlese"])) {
+  $szemelyig_szam = $_POST["szemelyig_szam"];
+  $sql = "DELETE FROM alkalmazottak_adatai WHERE szemelyig_szam='$szemelyig_szam'";
+  mysqli_query($link, $sql);
+}
+
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -57,6 +64,7 @@ if (isset($_POST["uj_dolgozo"])) {
                 <th>e-mail</th>
                 <th>Szül. hely</th>
                 <th>Szül. idő</th>
+                <th>Admin</th>
             </tr>
             
             <?php
@@ -71,6 +79,15 @@ if (isset($_POST["uj_dolgozo"])) {
               echo '<td>'.$row['email'].'</td>';
               echo '<td>'.$row['szuletesi_hely'].'</td>';
               echo '<td>'.$row['szuletesi_ido'].'</td>';
+              // Törlés link A elemmel:
+              //echo '<td><a href="?torol='.$row["szemelyig_szam"].'">törlés</a></td>';
+              // Törlés gomb űrlappal:
+              echo '<td>';
+              echo '<form method="post">';
+              echo '<input type="hidden" name="szemelyig_szam" value="'.$row["szemelyig_szam"].'">';
+              echo '<input type="submit" value="Törlés" name="dolgozo_torlese">';
+              echo '</form>';
+              echo '</td>';
               echo '</tr>';
             }
             ?>
