@@ -11,3 +11,8 @@ Követelények:
 * Lehessen módosítani egy dolgozó adatait
 * Lehessen törölni dolgozót
 * Az oldalhoz csak név és jelszó megadásával lehessen hozzáférni
+
+## Telepítés
+
+* Másoljuk be a weboldal fájlait a webszerverük mappájába!
+* Importáljuk az adatbazis mappában található .sql fájlt egy üres adatbázisba!
