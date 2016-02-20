@@ -1,4 +1,4 @@
-# alkalmazottak
+# Alkalmazottak
 Gyakorló feladat PHP nyelven, alkalmazottak adatainak nyilvántartása
 
 ## Feladat leírása
