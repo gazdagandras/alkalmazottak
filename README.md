@@ -16,3 +16,4 @@ Követelények:
 
 * Másoljuk be a weboldal fájlait a webszerverük mappájába!
 * Importáljuk az adatbazis mappában található .sql fájlt egy üres adatbázisba!
+* Frissíteni kell a beállításokat!
