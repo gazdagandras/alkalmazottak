@@ -56,6 +56,32 @@ mysqli_set_charset($link, "utf8");
             ?>
                         
         </table>
+        
+        <h2>Új dolgozó adatai:</h2>
+        <form method="post">
+            <label>Dolgozó neve:</label>
+            <input type="text" name="nev">
+            <br>
+            <label>Irányítószám:</label>
+            <input type="text" name="irszam">
+            <br>
+            <label>Település:</label>
+            <input type="text" name="telepules">
+            <br>            
+            <label>Cím:</label>
+            <input type="text" name="cim">
+            <br>            
+            <label>Születési hely:</label>
+            <input type="text" name="szuletesi_hely">
+            <br>            
+            <label>Születési idő:</label>
+            <input type="text" name="szuletesi_ido">
+            <br>            
+            <label>Személyi igazolvány száma:</label>
+            <input type="text" name="szemelyig_szam">
+            <br>            
+            <input type="submit" name="uj_dolgozo">
+        </form>
 
     </body>
 </html> 
