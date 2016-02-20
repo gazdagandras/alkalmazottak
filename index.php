@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $host = 'localhost';
 $user = 'root';
 $password = '';
@@ -44,6 +46,17 @@ if (isset($_POST["dolgozo_torlese"])) {
   mysqli_query($link, $sql);
 }
 
+// Belépés
+if (isset($_POST["belepes"])) {
+  $felhasznalonev = $_POST["felhasznalonev"];
+  $jelszo = $_POST["jelszo"];
+  
+  // "Buta" módszer:
+  if ($felhasznalonev == "admin" && $jelszo == "12345") {
+    $_SESSION["felhasznalonev"] = $felhasznalonev;
+  }
+}
+
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -54,6 +67,12 @@ if (isset($_POST["dolgozo_torlese"])) {
 
         <h1>Alkalmazottak nyilvántartása</h1>
 
+        <?php
+        
+        if (isset($_SESSION["felhasznalonev"])) {
+        
+        ?>
+        
         <h2>Alkalmazottak adatai</h2>
 
         <table border="1">
@@ -120,6 +139,31 @@ if (isset($_POST["dolgozo_torlese"])) {
             <input type="submit" name="uj_dolgozo">
         </form>
 
+        <?php
+        
+        } // if
+        else {
+        
+        ?>
+        
+        <h2>Belépés</h2>
+        
+        <form method="post">
+            <label>Felhasználónév:</label>
+            <input type="text" name="felhasznalonev">
+            <br>
+            <label>Jelszó:</label>
+            <input type="password" name="jelszo">
+            <br>
+            <input type="submit" name="belepes" value="Belépés">
+        </form>
+        
+        <?php
+        
+        }
+        
+        ?>
+        
     </body>
 </html> 
 <?php
