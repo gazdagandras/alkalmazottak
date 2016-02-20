@@ -16,3 +16,4 @@ Követelények:
 
 * Másoljuk be a weboldal fájlait a webszerverük mappájába!
 * Importáljuk az adatbazis mappában található .sql fájlt egy üres adatbázisba!
+* Az index.php fájl elején frissítsük az adatbázis beállításokat!
