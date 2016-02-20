@@ -36,6 +36,7 @@ mysqli_set_charset($link, "utf8");
                 <th>Telefon</th>
                 <th>e-mail</th>
                 <th>Szül. hely</th>
+                <th>Szül. idő</th>
             </tr>
             
             <?php
@@ -49,6 +50,7 @@ mysqli_set_charset($link, "utf8");
               echo '<td>'.$row['telefon'].'</td>';
               echo '<td>'.$row['email'].'</td>';
               echo '<td>'.$row['szuletesi_hely'].'</td>';
+              echo '<td>'.$row['szuletesi_ido'].'</td>';
               echo '</tr>';
             }
             ?>
