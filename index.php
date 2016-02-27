@@ -55,8 +55,11 @@ if (isset($_POST["belepes"])) {
   $felhasznalonev = $_POST["felhasznalonev"];
   $jelszo = $_POST["jelszo"];
   
-  // "Buta" módszer:
-  if ($felhasznalonev == "admin" && $jelszo == "12345") {
+  $kodolt_jelszo = md5($jelszo);
+  
+  $sql = "SELECT * FROM felhasznalok WHERE felhasznalonev='$felhasznalonev' AND jelszo='$kodolt_jelszo'";
+  $result = mysqli_query($link, $sql);
+  if (mysqli_num_rows($result) == 1) {
     $_SESSION["felhasznalonev"] = $felhasznalonev;
   } else {
     $hibauzenet = "Rossz név vagy jelszó!";
