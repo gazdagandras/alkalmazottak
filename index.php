@@ -7,6 +7,8 @@ $user = 'root';
 $password = '';
 $database = 'alkalmazottak';
 
+$baseUrl = 'http://localhost/alkalmazottak';
+
 // Adatbázis kapcsolat nyitása:
 $link = mysqli_connect($host, $user, $password, $database);
 
@@ -61,6 +63,7 @@ if (isset($_POST["belepes"])) {
 if (isset($_GET["kilepes"])) {
   unset($_SESSION["felhasznalonev"]);
   session_destroy();
+  header('Location: ' . $baseUrl);
 }
 
 ?><!DOCTYPE html>
