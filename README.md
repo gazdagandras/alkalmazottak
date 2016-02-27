@@ -16,5 +16,8 @@ Követelények:
 
 * Másoljuk be a weboldal fájlait a webszerverük mappájába!
 * Importáljuk az adatbazis mappában található .sql fájlt egy üres adatbázisba!
-* Az index.php fájl elején frissítsük az adatbázis beállításokat!
-  (adatbázis neve, belépési név, jelszó)
+
+## Konfigurálás
+
+* Másoljuk le a config.default.php fájlt config.php néven!
+* Ellenőrizzük a változókat és állítsuk be az adatbázis kapcsolat adatait, valamint az oldal kezdőlapjának URL-jét!

@@ -1,12 +1,7 @@
 <?php
 session_start();
 
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = 'alkalmazottak';
-
-$baseUrl = 'http://localhost/alkalmazottak';
+require 'config.php';
 
 $hibauzenet = '';
 
