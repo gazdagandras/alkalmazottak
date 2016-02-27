@@ -9,6 +9,8 @@ $database = 'alkalmazottak';
 
 $baseUrl = 'http://localhost/alkalmazottak';
 
+$hibauzenet = '';
+
 // Adatbázis kapcsolat nyitása:
 $link = mysqli_connect($host, $user, $password, $database);
 
@@ -56,6 +58,8 @@ if (isset($_POST["belepes"])) {
   // "Buta" módszer:
   if ($felhasznalonev == "admin" && $jelszo == "12345") {
     $_SESSION["felhasznalonev"] = $felhasznalonev;
+  } else {
+    $hibauzenet = "Rossz név vagy jelszó!";
   }
 }
 
@@ -157,6 +161,8 @@ if (isset($_GET["kilepes"])) {
         else {
         
         ?>
+        
+        <?php echo $hibauzenet; ?>
         
         <h2>Belépés</h2>
         
