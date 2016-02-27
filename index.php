@@ -57,6 +57,12 @@ if (isset($_POST["belepes"])) {
   }
 }
 
+// Kilépés
+if (isset($_GET["kilepes"])) {
+  unset($_SESSION["felhasznalonev"]);
+  session_destroy();
+}
+
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -68,9 +74,12 @@ if (isset($_POST["belepes"])) {
         <h1>Alkalmazottak nyilvántartása</h1>
 
         <?php
-        
+        // Be vagyok-e lépve?
         if (isset($_SESSION["felhasznalonev"])) {
-        
+          echo '<div id="userinfo">';
+          echo '  Belépve mint: ' . $_SESSION["felhasznalonev"];
+          echo '  <a href="?kilepes">Kilépés</a>';
+          echo '</div>';
         ?>
         
         <h2>Alkalmazottak adatai</h2>
