@@ -34,7 +34,8 @@ if (isset($_POST["uj_dolgozo"])) {
   mysqli_query($link, $sql);
   // Hibakezelés:
   if (mysqli_errno($link)) {
-    $hibauzenet = "Adatbázis hiba: " . mysqli_error($link);
+//    $hibauzenet = "Adatbázis hiba: " . mysqli_error($link);
+    $hibauzenet = "Már létezik ilyen személyi igazolványszám!";
   } else {
     $uzenet = "Sikeresen felvettük az új dolgozót: " . $nev;
   }
@@ -94,25 +95,25 @@ if (isset($_POST["uj_dolgozo"])) {
                   <h2>Új dolgozó adatai:</h2>
                   <form method="post">
                       <label>Dolgozó neve:</label>
-                      <input type="text" name="nev">
+                      <input type="text" name="nev" value="<?php echo $hibauzenet != '' ? $nev : ''; ?>">
                       <br>
                       <label>Irányítószám:</label>
-                      <input type="text" name="irszam">
+                      <input type="text" name="irszam" value="<?php echo $hibauzenet != '' ? $irszam : ''; ?>">
                       <br>
                       <label>Település:</label>
-                      <input type="text" name="telepules">
+                      <input type="text" name="telepules" value="<?php echo $hibauzenet != '' ? $telepules : ''; ?>">
                       <br>            
                       <label>Cím:</label>
-                      <input type="text" name="cim">
+                      <input type="text" name="cim" value="<?php echo $hibauzenet != '' ? $cim : ''; ?>">
                       <br>            
                       <label>Születési hely:</label>
-                      <input type="text" name="szuletesi_hely">
+                      <input type="text" name="szuletesi_hely" value="<?php echo $hibauzenet != '' ? $szuletesi_hely : ''; ?>">
                       <br>            
                       <label>Születési idő:</label>
-                      <input type="text" name="szuletesi_ido">
+                      <input type="text" name="szuletesi_ido" value="<?php echo $hibauzenet != '' ? $szuletesi_ido : ''; ?>">
                       <br>            
                       <label>Személyi igazolvány száma:</label>
-                      <input type="text" name="szemelyig_szam">
+                      <input type="text" name="szemelyig_szam"  value="<?php echo $hibauzenet != '' ? $szemelyig_szam : ''; ?>">
                       <br>            
                       <input type="submit" name="uj_dolgozo">
                   </form>
