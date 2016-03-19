@@ -70,7 +70,7 @@ if (isset($_POST["uj_dolgozo"])) {
             if (isset($_SESSION["felhasznalonev"])) {
               echo '<div id="userinfo">';
               echo '  Belépve mint: ' . $_SESSION["felhasznalonev"];
-              echo '  <a href="?kilepes">Kilépés</a>';
+              echo '  <a href="index.php?kilepes">Kilépés</a>';
               echo '</div>';
               ?>
 
@@ -120,6 +120,15 @@ if (isset($_POST["uj_dolgozo"])) {
 
               </div>
               <?php
+            } else {
+              ?>
+            
+            <div>
+                <b>A használathoz be kell jelentkeznie!</b>
+                <a href="index.php">Bejelentkezés</a>
+            </div>
+            
+            <?php
             }
             ?>
         </div>
