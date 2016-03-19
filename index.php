@@ -18,10 +18,10 @@ mysqli_set_charset($link, "utf8");
 
 // Új dolgozó felvitele:
 if (isset($_POST["uj_dolgozo"])) {
-  $nev = $_POST["nev"];
+  $nev = mysqli_real_escape_string($link, filter_input(INPUT_POST, "nev"));
   $irszam = $_POST["irszam"];
   $telepules = $_POST["telepules"];
-  $cim = $_POST["cim"];
+  $cim = mysqli_real_escape_string($link, filter_input(INPUT_POST, "cim"));
   $szuletesi_hely = $_POST["szuletesi_hely"];
   $szuletesi_ido = $_POST["szuletesi_ido"];
   $szemelyig_szam = $_POST["szemelyig_szam"];
@@ -69,7 +69,7 @@ if (isset($_GET["kilepes"])) {
 ?><!DOCTYPE html>
 <html>
     <head>
-        <title>Alkalmazottak nyilvántartása</title>
+        <title>Alkalmazottak nyilvántartása - Alkalmazottak listája</title>
         <meta charset="utf-8">
 
         <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
@@ -87,7 +87,7 @@ if (isset($_GET["kilepes"])) {
 
         <div class="container-fluid">
 
-            <div class="col-sm-12">
+            <div class="col-sm-12 col-xs-6">
                 <h1>Alkalmazottak nyilvántartása</h1>
             </div>
 
@@ -124,7 +124,7 @@ if (isset($_GET["kilepes"])) {
                           while ($row = mysqli_fetch_assoc($result)) {
                             echo '<tr>';
                             echo '<td>' . $row['nev'] . '</td>';
-                            echo '<td>' . $row['irszam'] . ' ' . $row['telepules'] . ', ' . $row['cim'] . '</td>';
+                            echo '<td>' . $row['irszam'] . ' ' . htmlspecialchars($row['telepules']) . ', ' . $row['cim'] . '</td>';
                             echo '<td>' . $row['telefon'] . '</td>';
                             echo '<td>' . $row['email'] . '</td>';
                             echo '<td>' . $row['szuletesi_hely'] . '</td>';
